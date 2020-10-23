@@ -6,9 +6,6 @@ const filteredSearch = require("./handlers/filter");
 const searchModule = require("./handlers/search");
 
 const browseModules = async () => {
-  // const categories = [...new Set(nuxtModules.map(({ category }) => category))];
-  // const types = [...new Set(nuxtModules.map(({ type }) => type))];
-
   const { choice } = await prompt({
     type: "list",
     name: "choice",
