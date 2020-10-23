@@ -7,7 +7,7 @@ const filteredSearch = async () => {
   const { filterCriteria } = await prompt({
     type: "list",
     name: "filterCriteria",
-    message: "Choose the filteration criteria",
+    message: "Choose the filter criteria",
     choices: ["By Type", "By Category"],
   });
 
