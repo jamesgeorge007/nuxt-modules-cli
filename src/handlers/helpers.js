@@ -1,4 +1,3 @@
-const { prompt } = require("inquirer");
 const nuxtModules = require("@nuxt/modules");
 const showBanner = require("node-banner");
 const terminalLink = require("terminal-link");

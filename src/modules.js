@@ -1,9 +1,9 @@
-const { prompt } = require('inquirer');
+const { prompt } = require("inquirer");
 
 // Handlers
-const browseEntireList = require('./handlers/browse');
-const filteredSearch = require('./handlers/filter');
-const searchModule = require('./handlers/search');
+const browseEntireList = require("./handlers/browse");
+const filteredSearch = require("./handlers/filter");
+const searchModule = require("./handlers/search");
 
 const browseModules = async () => {
   // const categories = [...new Set(nuxtModules.map(({ category }) => category))];
@@ -13,7 +13,11 @@ const browseModules = async () => {
     type: "list",
     name: "choice",
     message: "Choose from below",
-    choices: ["Browse the entire list", "Search for a module", "Apply filters (Type/Category)"],
+    choices: [
+      "Browse the entire list",
+      "Search for a module",
+      "Apply filters (Type/Category)",
+    ],
   });
 
   // Browse the entire list

@@ -1,7 +1,7 @@
-const { prompt } = require('inquirer');
+const { prompt } = require("inquirer");
 const nuxtModules = require("@nuxt/modules");
 
-const fetchModuleInfo = require('./helpers');
+const fetchModuleInfo = require("./helpers");
 
 const filteredSearch = async () => {
   const { filterCriteria } = await prompt({
@@ -35,7 +35,9 @@ const filteredSearch = async () => {
     fetchModuleInfo(module);
   } else {
     // Choose between the available module category (distinct values)
-    const moduleCategories = [...new Set(nuxtModules.map(({ category }) => category))];
+    const moduleCategories = [
+      ...new Set(nuxtModules.map(({ category }) => category)),
+    ];
 
     const { moduleCategory } = await prompt({
       type: "list",
@@ -45,7 +47,9 @@ const filteredSearch = async () => {
     });
 
     // Fetch the modules that fall under the chosen category
-    const choices = nuxtModules.filter(({ category }) => category === moduleCategory);
+    const choices = nuxtModules.filter(
+      ({ category }) => category === moduleCategory,
+    );
 
     const { module } = await prompt({
       type: "list",
