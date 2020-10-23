@@ -1,12 +1,9 @@
-# cli-starter
+# nuxt-modules-cli
 
-CLI starter kit on top of Node.js
-
-- Makes use of [commander.js](https://github.com/tj/commander.js) for the purpose of argument parsing.
-- `Eslint` configured to be used alongwith `prettier`.
+Browse Nuxt.js modules from the terminal.
 
 ```sh
-Usage: cli [options]
+Usage: nuxt-modules [options]
 
 Options:
   -V, --version  output the version number

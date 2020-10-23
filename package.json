@@ -1,29 +1,42 @@
 {
-  "name": "cli-starter",
-  "version": "1.0.0",
-  "description": "CLI starter template",
+  "name": "nuxt-modules-cli",
+  "version": "0.1.0",
+  "description": "Browse Nuxt.js modules from the terminal",
   "main": "./bin/index.js",
   "files": [
     "bin",
     "src"
   ],
   "bin": {
-    "cli": "./bin/index.js"
+    "nuxt-modules": "./bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix ./src"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nuxt",
+    "vue",
+    "cli",
+    "commander.js",
+    "node.js"
+  ],
+  "author": "James George",
   "license": "ISC",
   "dependencies": {
-    "commander": "^5.0.0"
+    "@nuxt/modules": "^0.5.0-42ef89",
+    "cli-table3": "^0.6.0",
+    "commander": "^6.1.0",
+    "inquirer": "^7.3.3",
+    "node-banner": "^1.4.0",
+    "terminal-link": "^2.1.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^2.0.4"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
   }
 }
