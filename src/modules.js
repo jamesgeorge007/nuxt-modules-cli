@@ -1,57 +1,33 @@
-const { prompt } = require("inquirer");
-const nuxtModules = require("@nuxt/modules");
-const showBanner = require("node-banner");
-const terminalLink = require("terminal-link");
+const { prompt } = require('inquirer');
 
-const Table = require("cli-table3");
+// Handlers
+const browseEntireList = require('./handlers/browse');
+const filteredSearch = require('./handlers/filter');
+const searchModule = require('./handlers/search');
 
 const browseModules = async () => {
   // const categories = [...new Set(nuxtModules.map(({ category }) => category))];
   // const types = [...new Set(nuxtModules.map(({ type }) => type))];
 
-  const { module } = await prompt({
+  const { choice } = await prompt({
     type: "list",
-    name: "module",
-    choices: nuxtModules,
+    name: "choice",
+    message: "Choose from below",
+    choices: ["Browse the entire list", "Search for a module", "Apply filters (Type/Category)"],
   });
 
-  // Fetch information specific to the opted Nuxt.js module
-  const moduleInfo = nuxtModules.find(({ name }) => name === module);
-
-  // Show up an ASCII banner with the module name and description
-  await showBanner(moduleInfo.name, moduleInfo.description, "green", "white");
-
-  console.log();
-  console.log(`🌟 Type: ${moduleInfo.type}`);
-  console.log(`🌟 Category: ${moduleInfo.category}`);
-  console.log();
-
-  // Instantiate
-  const table = new Table({
-    head: ["Type", "Link"],
-  });
-
-  table.push(
-    ["website", terminalLink(moduleInfo.website)],
-    ["npm page", terminalLink(`https://npmjs.com/package/${moduleInfo.npm}`)],
-    ["GitHub Repository", terminalLink(moduleInfo.github)],
-  );
-
-  console.log(table.toString());
-  console.log();
-
-  // Some of the Nuxt.js modules doesn't have learn_more link associated with it
-  if (moduleInfo.learn_more) {
-    console.log(`💁 Learn more ${terminalLink("here", moduleInfo.learn_more)}`);
-    console.log();
+  // Browse the entire list
+  if (choice.includes("Browse")) {
+    return browseEntireList();
   }
 
-  console.log("🧰 Maintainers");
-  console.log();
+  // Search for a module
+  if (choice.includes("Search")) {
+    return searchModule();
+  }
 
-  moduleInfo.maintainers.forEach(({ name, github }) => {
-    console.log(` 👉 ${terminalLink(name, `https://github.com/${github}`)}`);
-  });
+  // Apply filters (Type/Category)
+  return filteredSearch();
 };
 
 module.exports = browseModules;
