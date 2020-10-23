@@ -9,23 +9,27 @@ const browseModules = async () => {
   // const categories = [...new Set(nuxtModules.map(({ category }) => category))];
   // const types = [...new Set(nuxtModules.map(({ type }) => type))];
 
-  const table = new Table({
-    head: ["Type", "Link"],
-  });
-
   const { module } = await prompt({
     type: "list",
     name: "module",
     choices: nuxtModules,
   });
 
+  // Fetch information specific to the opted Nuxt.js module
   const moduleInfo = nuxtModules.find(({ name }) => name === module);
+
+  // Show up an ASCII banner with the module name and description
   await showBanner(moduleInfo.name, moduleInfo.description, "green", "white");
 
   console.log();
   console.log(`🌟 Type: ${moduleInfo.type}`);
   console.log(`🌟 Category: ${moduleInfo.category}`);
   console.log();
+
+  // Instantiate
+  const table = new Table({
+    head: ["Type", "Link"],
+  });
 
   table.push(
     ["website", terminalLink(moduleInfo.website)],
@@ -36,6 +40,7 @@ const browseModules = async () => {
   console.log(table.toString());
   console.log();
 
+  // Some of the Nuxt.js modules doesn't have learn_more link associated with it
   if (moduleInfo.learn_more) {
     console.log(`💁 Learn more ${terminalLink("here", moduleInfo.learn_more)}`);
     console.log();
