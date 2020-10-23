@@ -9,10 +9,7 @@ const browseModules = async () => {
     type: "list",
     name: "choice",
     message: "Choose from below",
-    choices: [
-      "Search for a module",
-      "Apply filters (Type/Category)",
-    ],
+    choices: ["Search for a module", "Apply filters (Type/Category)"],
   });
 
   // Search for a module
