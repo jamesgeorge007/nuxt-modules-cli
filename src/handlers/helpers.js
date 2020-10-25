@@ -21,10 +21,18 @@ const fetchModuleInfo = async (moduleName) => {
     head: ["Type", "Link"],
   });
 
+  const npmPageUrl = `https://npmjs.com/package/${moduleInfo.npm}`;
+
   table.push(
-    ["website", terminalLink(moduleInfo.website)],
-    ["npm page", terminalLink(`https://npmjs.com/package/${moduleInfo.npm}`)],
-    ["GitHub Repository", terminalLink(moduleInfo.github)],
+    [
+      "website",
+      terminalLink(moduleInfo.website, moduleInfo.website, { fallback: false }),
+    ],
+    ["npm page", terminalLink(npmPageUrl, npmPageUrl, { fallback: false })],
+    [
+      "GitHub Repository",
+      terminalLink(moduleInfo.github, moduleInfo.github, { fallback: false }),
+    ],
   );
 
   console.log(table.toString());
