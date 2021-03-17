@@ -1,3 +1,5 @@
+[![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/2847-shield.svg)](https://madewithvuejs.com/p/nuxt-modules-cli/shield-link)
+
 # nuxt-modules-cli
 
 Browse Nuxt.js modules from the terminal.
