@@ -36,4 +36,8 @@ nuxt-modules
 
 ![filter](https://user-images.githubusercontent.com/25279263/97022859-46032b80-1572-11eb-8928-5375897d958a.gif)
 
+## Featured
+
+Got featured by [Sébastien Chopin](https://twitter.com/Atinux/status/1320054248089047041?s=20)
+
 _Inspired by [nuxt/modules](https://github.com/nuxt/modules)_
